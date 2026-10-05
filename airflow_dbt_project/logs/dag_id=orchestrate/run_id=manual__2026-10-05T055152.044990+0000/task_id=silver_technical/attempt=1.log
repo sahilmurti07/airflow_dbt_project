@@ -1,0 +1,40 @@
+[2026-10-05T06:07:43.342+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_technical manual__2026-10-05T05:51:52.044990+00:00 [None]>
+[2026-10-05T06:07:43.617+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_technical manual__2026-10-05T05:51:52.044990+00:00 [None]>
+[2026-10-05T06:07:43.624+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-05T06:07:43.927+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_technical> on 2026-10-05 05:51:52.044990+00:00
+[2026-10-05T06:07:51.662+0000] {standard_task_runner.py:57} INFO - Started process 7587 to run task
+[2026-10-05T06:07:53.059+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_technical', 'manual__2026-10-05T05:51:52.044990+00:00', '--job-id', '75', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp8d_o0b57']
+[2026-10-05T06:07:53.196+0000] {standard_task_runner.py:85} INFO - Job 75: Subtask silver_technical
+[2026-10-05T06:07:54.633+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_technical manual__2026-10-05T05:51:52.044990+00:00 [running]> on host f2942b7819b9
+[2026-10-05T06:07:55.363+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_technical' AIRFLOW_CTX_EXECUTION_DATE='2026-10-05T05:51:52.044990+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-05T05:51:52.044990+00:00'
+[2026-10-05T06:07:55.382+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-05T06:07:55.404+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select silver_t']
+[2026-10-05T06:07:55.521+0000] {subprocess.py:86} INFO - Output:
+[2026-10-05T06:08:27.533+0000] {subprocess.py:93} INFO - [0m06:08:27  Running with dbt=1.12.5
+[2026-10-05T06:09:52.574+0000] {subprocess.py:93} INFO - [0m06:09:52  Registered adapter: databricks=1.12.6
+[2026-10-05T06:10:29.299+0000] {subprocess.py:93} INFO - [0m06:10:29  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-05T06:10:29.884+0000] {subprocess.py:93} INFO - [0m06:10:29
+[2026-10-05T06:10:29.895+0000] {subprocess.py:93} INFO - [0m06:10:29  Concurrency: 1 threads (target='dev')
+[2026-10-05T06:10:29.903+0000] {subprocess.py:93} INFO - [0m06:10:29
+[2026-10-05T06:11:03.500+0000] {subprocess.py:93} INFO - [0m06:11:03  1 of 6 START sql incremental model silver_t.customers_t ........................ [RUN]
+[2026-10-05T06:11:59.825+0000] {subprocess.py:93} INFO - [0m06:11:59  1 of 6 OK created sql incremental model silver_t.customers_t ................... [[32mOK[0m in 39.09s]
+[2026-10-05T06:12:00.086+0000] {subprocess.py:93} INFO - [0m06:11:59  2 of 6 START sql incremental model silver_t.employees_t ........................ [RUN]
+[2026-10-05T06:12:13.523+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2026-10-05T06:12:13.752+0000] {process_utils.py:131} INFO - Sending 15 to group 7587. PIDs of all processes in the group: [7589, 7617, 7587]
+[2026-10-05T06:12:13.760+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 7587
+[2026-10-05T06:12:13.794+0000] {taskinstance.py:1632} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-10-05T06:12:13.876+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-10-05T06:12:16.053+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 201, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1634, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-10-05T06:12:16.479+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=silver_technical, execution_date=20261005T055152, start_date=20261005T060743, end_date=20261005T061216
+[2026-10-05T06:12:16.950+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7617, status='terminated', started='06:09:52') (7617) terminated with exit code None
+[2026-10-05T06:12:17.028+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 75 for task silver_technical (Task received SIGTERM signal; 7587)
+[2026-10-05T06:12:17.262+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7587, status='terminated', exitcode=1, started='06:07:50') (7587) terminated with exit code 1
+[2026-10-05T06:12:17.267+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7589, status='terminated', started='06:07:54') (7589) terminated with exit code None

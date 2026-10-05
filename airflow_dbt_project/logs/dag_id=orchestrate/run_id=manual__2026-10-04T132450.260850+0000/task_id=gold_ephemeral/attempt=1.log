@@ -1,0 +1,24 @@
+[2026-10-04T13:41:53.440+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.gold_ephemeral manual__2026-10-04T13:24:50.260850+00:00 [queued]>
+[2026-10-04T13:41:53.458+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.gold_ephemeral manual__2026-10-04T13:24:50.260850+00:00 [queued]>
+[2026-10-04T13:41:53.459+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T13:41:53.480+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): gold_ephemeral> on 2026-10-04 13:24:50.260850+00:00
+[2026-10-04T13:41:53.500+0000] {standard_task_runner.py:57} INFO - Started process 6785 to run task
+[2026-10-04T13:41:53.509+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'gold_ephemeral', 'manual__2026-10-04T13:24:50.260850+00:00', '--job-id', '61', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpxr3vs79o']
+[2026-10-04T13:41:53.515+0000] {standard_task_runner.py:85} INFO - Job 61: Subtask gold_ephemeral
+[2026-10-04T13:41:53.631+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.gold_ephemeral manual__2026-10-04T13:24:50.260850+00:00 [running]> on host f2942b7819b9
+[2026-10-04T13:41:53.857+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='gold_ephemeral' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T13:24:50.260850+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T13:24:50.260850+00:00'
+[2026-10-04T13:41:53.861+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T13:41:53.872+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select models/gold/ephemeral']
+[2026-10-04T13:41:53.908+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T13:42:06.322+0000] {subprocess.py:93} INFO - [0m13:42:06  Running with dbt=1.12.5
+[2026-10-04T13:42:11.550+0000] {subprocess.py:93} INFO - [0m13:42:11  Registered adapter: databricks=1.12.6
+[2026-10-04T13:42:14.791+0000] {subprocess.py:93} INFO - [0m13:42:14  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T13:42:14.813+0000] {subprocess.py:93} INFO - [0m13:42:14
+[2026-10-04T13:42:14.816+0000] {subprocess.py:93} INFO - [0m13:42:14  Concurrency: 1 threads (target='dev')
+[2026-10-04T13:42:14.819+0000] {subprocess.py:93} INFO - [0m13:42:14
+[2026-10-04T13:42:25.178+0000] {subprocess.py:93} INFO - [0m13:42:25
+[2026-10-04T13:42:25.181+0000] {subprocess.py:93} INFO - [0m13:42:25  Finished running  in 0 hours 0 minutes and 10.36 seconds (10.36s).
+[2026-10-04T13:42:27.855+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-04T13:42:28.134+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=gold_ephemeral, execution_date=20261004T132450, start_date=20261004T134153, end_date=20261004T134228
+[2026-10-04T13:42:28.330+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T13:42:28.465+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

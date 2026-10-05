@@ -1,0 +1,40 @@
+[2026-10-05T06:56:21.873+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_technical manual__2026-10-05T06:51:17.335617+00:00 [queued]>
+[2026-10-05T06:56:21.895+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_technical manual__2026-10-05T06:51:17.335617+00:00 [queued]>
+[2026-10-05T06:56:21.897+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-05T06:56:21.929+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_technical> on 2026-10-05 06:51:17.335617+00:00
+[2026-10-05T06:56:21.972+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_technical', 'manual__2026-10-05T06:51:17.335617+00:00', '--job-id', '89', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpzu8nofbr']
+[2026-10-05T06:56:21.964+0000] {standard_task_runner.py:57} INFO - Started process 8493 to run task
+[2026-10-05T06:56:21.981+0000] {standard_task_runner.py:85} INFO - Job 89: Subtask silver_technical
+[2026-10-05T06:56:22.234+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_technical manual__2026-10-05T06:51:17.335617+00:00 [running]> on host f2942b7819b9
+[2026-10-05T06:56:22.604+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_technical' AIRFLOW_CTX_EXECUTION_DATE='2026-10-05T06:51:17.335617+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-05T06:51:17.335617+00:00'
+[2026-10-05T06:56:22.610+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-05T06:56:22.627+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select silver_t']
+[2026-10-05T06:56:22.677+0000] {subprocess.py:86} INFO - Output:
+[2026-10-05T06:56:32.058+0000] {subprocess.py:93} INFO - [0m06:56:32  Running with dbt=1.12.5
+[2026-10-05T06:56:39.523+0000] {subprocess.py:93} INFO - [0m06:56:39  Registered adapter: databricks=1.12.6
+[2026-10-05T06:56:43.247+0000] {subprocess.py:93} INFO - [0m06:56:43  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-05T06:56:43.270+0000] {subprocess.py:93} INFO - [0m06:56:43
+[2026-10-05T06:56:43.274+0000] {subprocess.py:93} INFO - [0m06:56:43  Concurrency: 1 threads (target='dev')
+[2026-10-05T06:56:43.279+0000] {subprocess.py:93} INFO - [0m06:56:43
+[2026-10-05T06:57:06.869+0000] {subprocess.py:93} INFO - [0m06:57:06  1 of 6 START sql incremental model silver_t.customers_t ........................ [RUN]
+[2026-10-05T06:57:34.314+0000] {subprocess.py:93} INFO - [0m06:57:34  1 of 6 OK created sql incremental model silver_t.customers_t ................... [[32mOK[0m in 27.38s]
+[2026-10-05T06:57:34.343+0000] {subprocess.py:93} INFO - [0m06:57:34  2 of 6 START sql incremental model silver_t.employees_t ........................ [RUN]
+[2026-10-05T06:57:49.093+0000] {subprocess.py:93} INFO - [0m06:57:49  2 of 6 OK created sql incremental model silver_t.employees_t ................... [[32mOK[0m in 14.74s]
+[2026-10-05T06:57:49.111+0000] {subprocess.py:93} INFO - [0m06:57:49  3 of 6 START sql incremental model silver_t.orders_items_t ..................... [RUN]
+[2026-10-05T06:58:06.880+0000] {subprocess.py:93} INFO - [0m06:58:06  3 of 6 OK created sql incremental model silver_t.orders_items_t ................ [[32mOK[0m in 17.55s]
+[2026-10-05T06:58:07.058+0000] {subprocess.py:93} INFO - [0m06:58:06  4 of 6 START sql incremental model silver_t.orders_t ........................... [RUN]
+[2026-10-05T06:58:23.061+0000] {subprocess.py:93} INFO - [0m06:58:23  4 of 6 OK created sql incremental model silver_t.orders_t ...................... [[32mOK[0m in 16.06s]
+[2026-10-05T06:58:23.104+0000] {subprocess.py:93} INFO - [0m06:58:23  5 of 6 START sql incremental model silver_t.products_t ......................... [RUN]
+[2026-10-05T06:58:42.720+0000] {subprocess.py:93} INFO - [0m06:58:42  5 of 6 OK created sql incremental model silver_t.products_t .................... [[32mOK[0m in 19.51s]
+[2026-10-05T06:58:42.805+0000] {subprocess.py:93} INFO - [0m06:58:42  6 of 6 START sql incremental model silver_t.stores_t ........................... [RUN]
+[2026-10-05T06:58:56.700+0000] {subprocess.py:93} INFO - [0m06:58:56  6 of 6 OK created sql incremental model silver_t.stores_t ...................... [[32mOK[0m in 13.89s]
+[2026-10-05T06:58:56.757+0000] {subprocess.py:93} INFO - [0m06:58:56
+[2026-10-05T06:58:56.762+0000] {subprocess.py:93} INFO - [0m06:58:56  Finished running 6 incremental models in 0 hours 2 minutes and 13.47 seconds (133.47s).
+[2026-10-05T06:58:57.420+0000] {subprocess.py:93} INFO - [0m06:58:57
+[2026-10-05T06:58:57.425+0000] {subprocess.py:93} INFO - [0m06:58:57  [32mCompleted successfully[0m
+[2026-10-05T06:58:57.429+0000] {subprocess.py:93} INFO - [0m06:58:57
+[2026-10-05T06:58:57.435+0000] {subprocess.py:93} INFO - [0m06:58:57  Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=6
+[2026-10-05T06:59:06.706+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-05T06:59:07.406+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=silver_technical, execution_date=20261005T065117, start_date=20261005T065621, end_date=20261005T065907
+[2026-10-05T06:59:07.622+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-05T06:59:07.869+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,44 @@
+==================== 2026-10-04T07:38:25.293229Z | 01a105d9-8a7e-7983-9142-7e104273add1 ====================
+07:38:25.300133 [info ]: Installing dbt project and profile setup
+07:38:25.381005 [info ]: Info Created .vscode/extensions.json with dbt extension recommendation
+07:38:25.384459 [info ]: Success Project created successfully!
+07:38:25.385171 [info ]: Info Project name: jaffle_shop
+07:38:25.385791 [info ]: Info Project directory: jaffle_shop
+07:38:34.600910 [info ]: Info Using existing profile 'walmart'
+07:38:34.602888 [info ]: Success Set profile 'walmart' in dbt_project.yml
+07:38:34.603572 [info ]: Validating profile inputs, adapters, and connection
+
+07:38:34.604495 [info ]: dbt 2.0.5
+07:38:34.611965 [info ]: Started loading project
+07:38:34.657354 [info ]: Loading ~/.dbt/profiles.yml
+07:38:34.685355 [info ]: Finished loading project [  0.07s]
+07:38:34.691627 [info ]: Started debugging
+07:38:34.693474 [info ]: Debugging profile: dev
+07:38:34.694143 [info ]: Debugging dbt version: 2.0.5
+07:38:34.694572 [info ]: Debugging platform: windows x86_64 (windows)
+07:38:34.696321 [info ]: Debugging adapter type: databricks (remote)
+07:38:34.843832 [info ]: Debugging dependencies:
+  git: OK
+07:38:34.849397 [info ]: Debugging connection:
+  "schema": "bronze",
+  "host": "dbc-70a4493d-4d3e.cloud.databricks.com",
+  "http_path": "/sql/1.0/warehouses/63b6326b54143714"
+07:38:34.863182 [debug]: Databricks driver resolved: databricks 0.21.0.dev+dbt0.21.13
+07:38:47.431790 [debug]: borrow_tlocal_connection() took 12.5732239s
+07:38:47.447095 [debug]: create_debug_span(...).entered() took 1.9791ms
+07:38:48.490971 [debug]: stmt.execute() (submit+wait_for_completion, returns reader) took 1.0426411s
+07:38:48.491358 [debug]: reader.schema() took 329.7µs
+07:38:48.496889 [debug]: do_execute(conn) (closure: stmt.execute + schema + batch loop) took 1.049737s
+07:38:48.500640 [debug]: concat_batches + normalize_result_column_names took 3.6886ms
+07:38:48.502268 [debug]: record_current_span_status_from_attrs took 1.5775ms
+07:38:48.502620 [debug]: Query executed on node unknown:
+select 1 as id
+07:38:48.502924 [debug]: drop(query_span_guard) (span exit/export) took 620µs
+07:38:48.508788 [debug]: adapter.execute() (full call, incl. adbc_execute_with_options) took 1.0769279s
+07:38:48.509915 [info ]: Debugging connection test: OK (13.7s)
+07:38:48.514618 [info ]: Debugged All checks passed!
+07:38:48.516382 [info ]: Finished debugging [ 13.82s]
+07:38:48.525542 [info ]: New version available 2.0.6 (run `dbt system update`)
+07:38:48.834989 [info ]: 
+==================== Execution Summary =====================
+Finished 'init' successfully for target 'dev' [23.5s]

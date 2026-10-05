@@ -1,0 +1,16 @@
+[2026-10-04T07:55:57.747+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.clean_target manual__2026-10-04T07:55:43.740321+00:00 [queued]>
+[2026-10-04T07:55:57.790+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.clean_target manual__2026-10-04T07:55:43.740321+00:00 [queued]>
+[2026-10-04T07:55:57.791+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T07:55:57.867+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): clean_target> on 2026-10-04 07:55:43.740321+00:00
+[2026-10-04T07:55:57.888+0000] {standard_task_runner.py:57} INFO - Started process 2774 to run task
+[2026-10-04T07:55:57.908+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'clean_target', 'manual__2026-10-04T07:55:43.740321+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpgpi0zucd']
+[2026-10-04T07:55:57.936+0000] {standard_task_runner.py:85} INFO - Job 42: Subtask clean_target
+[2026-10-04T07:55:58.520+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.clean_target manual__2026-10-04T07:55:43.740321+00:00 [running]> on host f2942b7819b9
+[2026-10-04T07:55:59.047+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='clean_target' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:55:43.740321+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:55:43.740321+00:00'
+[2026-10-04T07:55:59.061+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T07:55:59.078+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'rm -rf /opt/***/walmart/target && rm -rf /opt/***/walmart/logs && rm -rf /opt/***/walmart/dbt_packages']
+[2026-10-04T07:55:59.135+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T07:55:59.185+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-04T07:55:59.294+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=clean_target, execution_date=20261004T075543, start_date=20261004T075557, end_date=20261004T075559
+[2026-10-04T07:55:59.364+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T07:55:59.432+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

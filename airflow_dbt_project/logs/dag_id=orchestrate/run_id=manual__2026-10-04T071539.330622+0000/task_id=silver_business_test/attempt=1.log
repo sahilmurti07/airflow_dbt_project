@@ -1,0 +1,26 @@
+[2026-10-04T07:16:18.972+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_business_test manual__2026-10-04T07:15:39.330622+00:00 [queued]>
+[2026-10-04T07:16:19.143+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_business_test manual__2026-10-04T07:15:39.330622+00:00 [queued]>
+[2026-10-04T07:16:19.165+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T07:16:19.353+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_business_test> on 2026-10-04 07:15:39.330622+00:00
+[2026-10-04T07:16:19.502+0000] {standard_task_runner.py:57} INFO - Started process 1640 to run task
+[2026-10-04T07:16:19.955+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_business_test', 'manual__2026-10-04T07:15:39.330622+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp42mtuns6']
+[2026-10-04T07:16:20.313+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask silver_business_test
+[2026-10-04T07:16:21.640+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_business_test manual__2026-10-04T07:15:39.330622+00:00 [running]> on host f2942b7819b9
+[2026-10-04T07:16:23.617+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_business_test' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:15:39.330622+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:15:39.330622+00:00'
+[2026-10-04T07:16:23.695+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T07:16:23.777+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt test -- select silver_b']
+[2026-10-04T07:16:24.680+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T07:18:21.737+0000] {subprocess.py:93} INFO - Usage: dbt test [OPTIONS]
+[2026-10-04T07:18:26.026+0000] {subprocess.py:93} INFO - Try 'dbt test --help' for help.
+[2026-10-04T07:18:26.123+0000] {subprocess.py:93} INFO - 
+[2026-10-04T07:18:26.162+0000] {subprocess.py:93} INFO - Error: Got unexpected extra arguments (select silver_b)
+[2026-10-04T07:18:38.676+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-10-04T07:18:41.081+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-10-04T07:18:41.786+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=silver_business_test, execution_date=20261004T071539, start_date=20261004T071618, end_date=20261004T071841
+[2026-10-04T07:18:42.124+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 15 for task silver_business_test (Bash command failed. The command returned a non-zero exit code 2.; 1640)
+[2026-10-04T07:18:42.490+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-10-04T07:18:43.823+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

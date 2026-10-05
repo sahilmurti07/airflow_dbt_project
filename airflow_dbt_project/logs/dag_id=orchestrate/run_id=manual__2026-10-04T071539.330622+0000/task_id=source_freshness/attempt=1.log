@@ -1,0 +1,23 @@
+[2026-10-04T07:18:58.788+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-04T07:15:39.330622+00:00 [queued]>
+[2026-10-04T07:18:58.814+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-04T07:15:39.330622+00:00 [queued]>
+[2026-10-04T07:18:58.816+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T07:18:58.854+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): source_freshness> on 2026-10-04 07:15:39.330622+00:00
+[2026-10-04T07:18:58.948+0000] {standard_task_runner.py:57} INFO - Started process 1691 to run task
+[2026-10-04T07:18:58.960+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'source_freshness', 'manual__2026-10-04T07:15:39.330622+00:00', '--job-id', '19', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp6gzb7av5']
+[2026-10-04T07:18:59.003+0000] {standard_task_runner.py:85} INFO - Job 19: Subtask source_freshness
+[2026-10-04T07:18:59.329+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.source_freshness manual__2026-10-04T07:15:39.330622+00:00 [running]> on host f2942b7819b9
+[2026-10-04T07:18:59.737+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='source_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:15:39.330622+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:15:39.330622+00:00'
+[2026-10-04T07:18:59.762+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T07:18:59.783+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt source freshness']
+[2026-10-04T07:18:59.844+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T07:19:12.199+0000] {subprocess.py:93} INFO - [0m07:19:12  Running with dbt=1.12.5
+[2026-10-04T07:19:26.405+0000] {subprocess.py:93} INFO - [0m07:19:26  Registered adapter: databricks=1.12.6
+[2026-10-04T07:19:27.742+0000] {subprocess.py:93} INFO - [0m07:19:27  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2026-10-04T07:19:58.015+0000] {subprocess.py:93} INFO - [0m07:19:57  [HINT] Your parse is taking a long time. You can speed up your parsing with the new rust parser: https://docs.getdbt.com/reference/global-configs/parsing?utm_source=dbt-cli#opt-in-v2-parser
+[2026-10-04T07:20:08.906+0000] {subprocess.py:93} INFO - [0m07:20:08  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T07:20:09.496+0000] {subprocess.py:93} INFO - [0m07:20:09  [[33mWARNING[0m]: Nothing to do. Try checking your model configs and model specification args
+[2026-10-04T07:20:12.280+0000] {subprocess.py:93} INFO - [0m07:20:12  Done.
+[2026-10-04T07:20:56.992+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-04T07:20:59.341+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=source_freshness, execution_date=20261004T071539, start_date=20261004T071858, end_date=20261004T072059
+[2026-10-04T07:21:00.294+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T07:21:01.199+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

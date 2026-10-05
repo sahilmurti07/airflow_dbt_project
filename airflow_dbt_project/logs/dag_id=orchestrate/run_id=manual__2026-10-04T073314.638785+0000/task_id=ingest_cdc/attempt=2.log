@@ -1,0 +1,13 @@
+[2026-10-04T07:55:34.749+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.ingest_cdc manual__2026-10-04T07:33:14.638785+00:00 [queued]>
+[2026-10-04T07:55:34.773+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.ingest_cdc manual__2026-10-04T07:33:14.638785+00:00 [queued]>
+[2026-10-04T07:55:34.774+0000] {taskinstance.py:1361} INFO - Starting attempt 2 of 2
+[2026-10-04T07:55:34.818+0000] {taskinstance.py:1382} INFO - Executing <Task(_PythonDecoratedOperator): ingest_cdc> on 2026-10-04 07:33:14.638785+00:00
+[2026-10-04T07:55:34.884+0000] {standard_task_runner.py:57} INFO - Started process 2757 to run task
+[2026-10-04T07:55:34.914+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'ingest_cdc', 'manual__2026-10-04T07:33:14.638785+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp792wcb_6']
+[2026-10-04T07:55:34.963+0000] {standard_task_runner.py:85} INFO - Job 38: Subtask ingest_cdc
+[2026-10-04T07:55:35.421+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.ingest_cdc manual__2026-10-04T07:33:14.638785+00:00 [running]> on host f2942b7819b9
+[2026-10-04T07:55:35.888+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='ingest_cdc' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:33:14.638785+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:33:14.638785+00:00'
+[2026-10-04T07:55:35.891+0000] {python.py:194} INFO - Done. Returned value was: Ingesting CDC data
+[2026-10-04T07:55:35.959+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=ingest_cdc, execution_date=20261004T073314, start_date=20261004T075534, end_date=20261004T075535
+[2026-10-04T07:55:36.046+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T07:55:36.118+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

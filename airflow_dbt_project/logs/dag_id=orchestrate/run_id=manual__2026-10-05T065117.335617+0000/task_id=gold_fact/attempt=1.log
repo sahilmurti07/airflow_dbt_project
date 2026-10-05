@@ -1,0 +1,30 @@
+[2026-10-05T07:05:39.336+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.gold_fact manual__2026-10-05T06:51:17.335617+00:00 [queued]>
+[2026-10-05T07:05:39.422+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.gold_fact manual__2026-10-05T06:51:17.335617+00:00 [queued]>
+[2026-10-05T07:05:39.428+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-05T07:05:39.563+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): gold_fact> on 2026-10-05 06:51:17.335617+00:00
+[2026-10-05T07:05:39.618+0000] {standard_task_runner.py:57} INFO - Started process 8839 to run task
+[2026-10-05T07:05:39.637+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'gold_fact', 'manual__2026-10-05T06:51:17.335617+00:00', '--job-id', '95', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpx5qj9uh4']
+[2026-10-05T07:05:39.652+0000] {standard_task_runner.py:85} INFO - Job 95: Subtask gold_fact
+[2026-10-05T07:05:39.830+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.gold_fact manual__2026-10-05T06:51:17.335617+00:00 [running]> on host f2942b7819b9
+[2026-10-05T07:05:40.032+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='gold_fact' AIRFLOW_CTX_EXECUTION_DATE='2026-10-05T06:51:17.335617+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-05T06:51:17.335617+00:00'
+[2026-10-05T07:05:40.036+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-05T07:05:40.040+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select models/gold/fact']
+[2026-10-05T07:05:40.090+0000] {subprocess.py:86} INFO - Output:
+[2026-10-05T07:05:46.088+0000] {subprocess.py:93} INFO - [0m07:05:46  Running with dbt=1.12.5
+[2026-10-05T07:05:52.023+0000] {subprocess.py:93} INFO - [0m07:05:52  Registered adapter: databricks=1.12.6
+[2026-10-05T07:05:55.358+0000] {subprocess.py:93} INFO - [0m07:05:55  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-05T07:05:55.386+0000] {subprocess.py:93} INFO - [0m07:05:55
+[2026-10-05T07:05:55.390+0000] {subprocess.py:93} INFO - [0m07:05:55  Concurrency: 1 threads (target='dev')
+[2026-10-05T07:05:55.394+0000] {subprocess.py:93} INFO - [0m07:05:55
+[2026-10-05T07:06:08.325+0000] {subprocess.py:93} INFO - [0m07:06:08  1 of 1 START sql table model gold.fact_orders .................................. [RUN]
+[2026-10-05T07:06:14.848+0000] {subprocess.py:93} INFO - [0m07:06:14  1 of 1 OK created sql table model gold.fact_orders ............................. [[32mOK[0m in 6.50s]
+[2026-10-05T07:06:14.879+0000] {subprocess.py:93} INFO - [0m07:06:14
+[2026-10-05T07:06:14.883+0000] {subprocess.py:93} INFO - [0m07:06:14  Finished running 1 table model in 0 hours 0 minutes and 19.48 seconds (19.48s).
+[2026-10-05T07:06:15.973+0000] {subprocess.py:93} INFO - [0m07:06:15
+[2026-10-05T07:06:15.979+0000] {subprocess.py:93} INFO - [0m07:06:15  [32mCompleted successfully[0m
+[2026-10-05T07:06:15.983+0000] {subprocess.py:93} INFO - [0m07:06:15
+[2026-10-05T07:06:15.987+0000] {subprocess.py:93} INFO - [0m07:06:15  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
+[2026-10-05T07:06:19.222+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-05T07:06:19.683+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=gold_fact, execution_date=20261005T065117, start_date=20261005T070539, end_date=20261005T070619
+[2026-10-05T07:06:19.861+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-05T07:06:19.975+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,23 @@
+[2026-10-03T14:09:42.687+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-03T14:08:41.817694+00:00 [queued]>
+[2026-10-03T14:09:42.704+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-03T14:08:41.817694+00:00 [queued]>
+[2026-10-03T14:09:42.705+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-03T14:09:42.732+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): source_freshness> on 2026-10-03 14:08:41.817694+00:00
+[2026-10-03T14:09:42.793+0000] {standard_task_runner.py:57} INFO - Started process 1101 to run task
+[2026-10-03T14:09:42.802+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'source_freshness', 'manual__2026-10-03T14:08:41.817694+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp37ax43oo']
+[2026-10-03T14:09:42.811+0000] {standard_task_runner.py:85} INFO - Job 3: Subtask source_freshness
+[2026-10-03T14:09:42.943+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.source_freshness manual__2026-10-03T14:08:41.817694+00:00 [running]> on host c74f689211fa
+[2026-10-03T14:09:43.501+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='source_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-03T14:08:41.817694+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-03T14:08:41.817694+00:00'
+[2026-10-03T14:09:43.754+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-03T14:09:43.771+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'dbt source freshness']
+[2026-10-03T14:09:44.109+0000] {subprocess.py:86} INFO - Output:
+[2026-10-03T14:09:45.051+0000] {subprocess.py:93} INFO - /bin/bash: line 1: dbt: command not found
+[2026-10-03T14:09:45.052+0000] {subprocess.py:97} INFO - Command exited with return code 127
+[2026-10-03T14:09:45.081+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 127.
+[2026-10-03T14:09:45.093+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=source_freshness, execution_date=20261003T140841, start_date=20261003T140942, end_date=20261003T140945
+[2026-10-03T14:09:45.541+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 3 for task source_freshness (Bash command failed. The command returned a non-zero exit code 127.; 1101)
+[2026-10-03T14:09:45.720+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-10-03T14:09:45.758+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

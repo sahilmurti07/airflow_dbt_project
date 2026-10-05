@@ -1,0 +1,30 @@
+[2026-10-04T08:04:21.521+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_business manual__2026-10-04T07:55:43.740321+00:00 [queued]>
+[2026-10-04T08:04:21.578+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_business manual__2026-10-04T07:55:43.740321+00:00 [queued]>
+[2026-10-04T08:04:21.584+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T08:04:21.670+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_business> on 2026-10-04 07:55:43.740321+00:00
+[2026-10-04T08:04:22.077+0000] {standard_task_runner.py:57} INFO - Started process 3092 to run task
+[2026-10-04T08:04:22.172+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_business', 'manual__2026-10-04T07:55:43.740321+00:00', '--job-id', '49', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpmggmepnr']
+[2026-10-04T08:04:22.220+0000] {standard_task_runner.py:85} INFO - Job 49: Subtask silver_business
+[2026-10-04T08:04:22.632+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_business manual__2026-10-04T07:55:43.740321+00:00 [running]> on host f2942b7819b9
+[2026-10-04T08:04:23.055+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_business' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:55:43.740321+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:55:43.740321+00:00'
+[2026-10-04T08:04:23.072+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T08:04:23.086+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select models/silver_b']
+[2026-10-04T08:04:23.138+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T08:04:36.558+0000] {subprocess.py:93} INFO - [0m08:04:36  Running with dbt=1.12.5
+[2026-10-04T08:05:01.950+0000] {subprocess.py:93} INFO - [0m08:05:01  Registered adapter: databricks=1.12.6
+[2026-10-04T08:05:11.336+0000] {subprocess.py:93} INFO - [0m08:05:11  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T08:05:11.428+0000] {subprocess.py:93} INFO - [0m08:05:11
+[2026-10-04T08:05:11.439+0000] {subprocess.py:93} INFO - [0m08:05:11  Concurrency: 1 threads (target='dev')
+[2026-10-04T08:05:11.451+0000] {subprocess.py:93} INFO - [0m08:05:11
+[2026-10-04T08:05:27.242+0000] {subprocess.py:93} INFO - [0m08:05:27  1 of 1 START sql table model silver_b.obt_b .................................... [RUN]
+[2026-10-04T08:05:39.285+0000] {subprocess.py:93} INFO - [0m08:05:39  1 of 1 OK created sql table model silver_b.obt_b ............................... [[32mOK[0m in 11.88s]
+[2026-10-04T08:05:39.795+0000] {subprocess.py:93} INFO - [0m08:05:39
+[2026-10-04T08:05:39.876+0000] {subprocess.py:93} INFO - [0m08:05:39  Finished running 1 table model in 0 hours 0 minutes and 28.32 seconds (28.32s).
+[2026-10-04T08:05:47.181+0000] {subprocess.py:93} INFO - [0m08:05:47
+[2026-10-04T08:05:47.198+0000] {subprocess.py:93} INFO - [0m08:05:47  [32mCompleted successfully[0m
+[2026-10-04T08:05:47.203+0000] {subprocess.py:93} INFO - [0m08:05:47
+[2026-10-04T08:05:47.420+0000] {subprocess.py:93} INFO - [0m08:05:47  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
+[2026-10-04T08:06:35.244+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-04T08:06:35.965+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=silver_business, execution_date=20261004T075543, start_date=20261004T080421, end_date=20261004T080635
+[2026-10-04T08:06:36.137+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T08:06:36.326+0000] {taskinstance.py:2784} INFO - 1 downstream tasks scheduled from follow-on schedule check

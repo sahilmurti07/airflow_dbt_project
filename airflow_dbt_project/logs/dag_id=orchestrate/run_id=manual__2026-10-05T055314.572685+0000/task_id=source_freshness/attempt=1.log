@@ -1,0 +1,37 @@
+[2026-10-05T05:56:28.032+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-05T05:53:14.572685+00:00 [queued]>
+[2026-10-05T05:56:28.094+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-05T05:53:14.572685+00:00 [queued]>
+[2026-10-05T05:56:28.104+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-05T05:56:28.183+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): source_freshness> on 2026-10-05 05:53:14.572685+00:00
+[2026-10-05T05:56:28.278+0000] {standard_task_runner.py:57} INFO - Started process 7392 to run task
+[2026-10-05T05:56:28.321+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'source_freshness', 'manual__2026-10-05T05:53:14.572685+00:00', '--job-id', '74', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp9i4_boys']
+[2026-10-05T05:56:28.347+0000] {standard_task_runner.py:85} INFO - Job 74: Subtask source_freshness
+[2026-10-05T05:56:28.607+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.source_freshness manual__2026-10-05T05:53:14.572685+00:00 [running]> on host f2942b7819b9
+[2026-10-05T05:56:29.286+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='source_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-05T05:53:14.572685+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-05T05:53:14.572685+00:00'
+[2026-10-05T05:56:29.296+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-05T05:56:29.300+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt source freshness']
+[2026-10-05T05:56:29.373+0000] {subprocess.py:86} INFO - Output:
+[2026-10-05T05:56:54.453+0000] {subprocess.py:93} INFO - [0m05:56:54  Running with dbt=1.12.5
+[2026-10-05T05:58:00.484+0000] {subprocess.py:93} INFO - [0m05:58:00  Registered adapter: databricks=1.12.6
+[2026-10-05T05:58:05.127+0000] {subprocess.py:93} INFO - [0m05:58:05  Unable to do partial parsing because saved manifest not found. Starting full parse.
+[2026-10-05T06:00:44.672+0000] {subprocess.py:93} INFO - [0m06:00:44  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-05T06:00:44.838+0000] {subprocess.py:93} INFO - [0m06:00:44  [[33mWARNING[0m]: Nothing to do. Try checking your model configs and model specification args
+[2026-10-05T06:00:45.398+0000] {subprocess.py:93} INFO - [0m06:00:45  Done.
+[2026-10-05T06:06:43.090+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to None. Terminating instance.
+[2026-10-05T06:06:44.966+0000] {process_utils.py:131} INFO - Sending 15 to group 7392. PIDs of all processes in the group: [7393, 7432, 7392]
+[2026-10-05T06:06:45.013+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 7392
+[2026-10-05T06:06:45.405+0000] {taskinstance.py:1632} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-10-05T06:06:46.265+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-10-05T06:07:00.135+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7432, status='terminated', started='05:58:00') (7432) terminated with exit code None
+[2026-10-05T06:07:00.545+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 201, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1634, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-10-05T06:07:00.954+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=source_freshness, execution_date=20261005T055314, start_date=20261005T055628, end_date=20261005T060700
+[2026-10-05T06:07:01.606+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 74 for task source_freshness (Task received SIGTERM signal; 7392)
+[2026-10-05T06:07:01.874+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7392, status='terminated', exitcode=1, started='05:56:27') (7392) terminated with exit code 1
+[2026-10-05T06:07:01.883+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=7393, status='terminated', started='05:56:28') (7393) terminated with exit code None

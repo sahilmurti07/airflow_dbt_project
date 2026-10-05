@@ -1,0 +1,36 @@
+[2026-10-04T13:42:35.267+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.gold_dimension manual__2026-10-04T13:24:50.260850+00:00 [queued]>
+[2026-10-04T13:42:35.321+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.gold_dimension manual__2026-10-04T13:24:50.260850+00:00 [queued]>
+[2026-10-04T13:42:35.322+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T13:42:35.383+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): gold_dimension> on 2026-10-04 13:24:50.260850+00:00
+[2026-10-04T13:42:35.401+0000] {standard_task_runner.py:57} INFO - Started process 6821 to run task
+[2026-10-04T13:42:35.440+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'gold_dimension', 'manual__2026-10-04T13:24:50.260850+00:00', '--job-id', '62', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpl8w_6t96']
+[2026-10-04T13:42:35.456+0000] {standard_task_runner.py:85} INFO - Job 62: Subtask gold_dimension
+[2026-10-04T13:42:35.674+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.gold_dimension manual__2026-10-04T13:24:50.260850+00:00 [running]> on host f2942b7819b9
+[2026-10-04T13:42:35.946+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='gold_dimension' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T13:24:50.260850+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T13:24:50.260850+00:00'
+[2026-10-04T13:42:35.958+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T13:42:35.972+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select snapshots']
+[2026-10-04T13:42:36.026+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T13:42:46.325+0000] {subprocess.py:93} INFO - [0m13:42:46  Running with dbt=1.12.5
+[2026-10-04T13:42:53.232+0000] {subprocess.py:93} INFO - [0m13:42:53  Registered adapter: databricks=1.12.6
+[2026-10-04T13:42:56.469+0000] {subprocess.py:93} INFO - [0m13:42:56  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T13:42:56.573+0000] {subprocess.py:93} INFO - [0m13:42:56  [[33mWARNING[0m]: The selection criterion 'snapshots' does not match any enabled nodes
+[2026-10-04T13:42:56.743+0000] {subprocess.py:93} INFO - [0m13:42:56  [[33mWARNING[0m]: Nothing to do. Try checking your model configs and model specification args
+[2026-10-05T05:31:34.989+0000] {local_task_job_runner.py:294} WARNING - State of this instance has been externally set to queued. Terminating instance.
+[2026-10-05T05:31:54.115+0000] {process_utils.py:131} INFO - Sending 15 to group 6821. PIDs of all processes in the group: [6822, 6835, 6821]
+[2026-10-05T05:31:54.233+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 6821
+[2026-10-05T05:31:54.688+0000] {taskinstance.py:1632} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-10-05T05:32:13.172+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-10-05T05:32:18.139+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=6835, status='terminated', started='13:42:52') (6835) terminated with exit code None
+[2026-10-05T05:32:19.122+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 201, in execute
+    result = self.subprocess_hook.run_command(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 1634, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-10-05T05:32:19.609+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=gold_dimension, execution_date=20261004T132450, start_date=20261004T134235, end_date=20261005T053219
+[2026-10-05T05:32:21.674+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 62 for task gold_dimension (Task received SIGTERM signal; 6821)
+[2026-10-05T05:32:22.338+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=6822, status='terminated', started='13:42:35') (6822) terminated with exit code None
+[2026-10-05T05:32:22.349+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=6821, status='terminated', exitcode=1, started='13:42:34') (6821) terminated with exit code 1

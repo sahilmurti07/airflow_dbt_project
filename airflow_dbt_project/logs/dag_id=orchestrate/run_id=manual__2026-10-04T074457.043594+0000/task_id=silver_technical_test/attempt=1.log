@@ -1,0 +1,36 @@
+[2026-10-04T07:48:59.384+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_technical_test manual__2026-10-04T07:44:57.043594+00:00 [queued]>
+[2026-10-04T07:48:59.406+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_technical_test manual__2026-10-04T07:44:57.043594+00:00 [queued]>
+[2026-10-04T07:48:59.407+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T07:48:59.462+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_technical_test> on 2026-10-04 07:44:57.043594+00:00
+[2026-10-04T07:48:59.527+0000] {standard_task_runner.py:57} INFO - Started process 2474 to run task
+[2026-10-04T07:48:59.534+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_technical_test', 'manual__2026-10-04T07:44:57.043594+00:00', '--job-id', '32', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpjlq47wxs']
+[2026-10-04T07:48:59.554+0000] {standard_task_runner.py:85} INFO - Job 32: Subtask silver_technical_test
+[2026-10-04T07:48:59.789+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_technical_test manual__2026-10-04T07:44:57.043594+00:00 [running]> on host f2942b7819b9
+[2026-10-04T07:49:00.063+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_technical_test' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:44:57.043594+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:44:57.043594+00:00'
+[2026-10-04T07:49:00.076+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T07:49:00.093+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt test --select models/silver_t']
+[2026-10-04T07:49:00.137+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T07:49:16.407+0000] {subprocess.py:93} INFO - [0m07:49:16  Running with dbt=1.12.5
+[2026-10-04T07:49:26.747+0000] {subprocess.py:93} INFO - [0m07:49:26  Registered adapter: databricks=1.12.6
+[2026-10-04T07:49:32.822+0000] {subprocess.py:93} INFO - [0m07:49:32  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T07:49:32.880+0000] {subprocess.py:93} INFO - [0m07:49:32
+[2026-10-04T07:49:32.885+0000] {subprocess.py:93} INFO - [0m07:49:32  Concurrency: 1 threads (target='dev')
+[2026-10-04T07:49:32.890+0000] {subprocess.py:93} INFO - [0m07:49:32
+[2026-10-04T07:49:43.774+0000] {subprocess.py:93} INFO - [0m07:49:43  1 of 4 START test not_null_orders_t_order_id ................................... [RUN]
+[2026-10-04T07:49:46.796+0000] {subprocess.py:93} INFO - [0m07:49:46  1 of 4 PASS not_null_orders_t_order_id ......................................... [[32mPASS[0m in 3.01s]
+[2026-10-04T07:49:46.815+0000] {subprocess.py:93} INFO - [0m07:49:46  2 of 4 START test not_null_products_t_product_id ............................... [RUN]
+[2026-10-04T07:49:50.740+0000] {subprocess.py:93} INFO - [0m07:49:50  2 of 4 PASS not_null_products_t_product_id ..................................... [[32mPASS[0m in 3.92s]
+[2026-10-04T07:49:50.756+0000] {subprocess.py:93} INFO - [0m07:49:50  3 of 4 START test unique_orders_t_order_id ..................................... [RUN]
+[2026-10-04T07:49:53.100+0000] {subprocess.py:93} INFO - [0m07:49:53  3 of 4 PASS unique_orders_t_order_id ........................................... [[32mPASS[0m in 2.34s]
+[2026-10-04T07:49:53.113+0000] {subprocess.py:93} INFO - [0m07:49:53  4 of 4 START test unique_products_t_product_id ................................. [RUN]
+[2026-10-04T07:49:55.471+0000] {subprocess.py:93} INFO - [0m07:49:55  4 of 4 PASS unique_products_t_product_id ....................................... [[32mPASS[0m in 2.35s]
+[2026-10-04T07:49:55.519+0000] {subprocess.py:93} INFO - [0m07:49:55
+[2026-10-04T07:49:55.522+0000] {subprocess.py:93} INFO - [0m07:49:55  Finished running 4 data tests in 0 hours 0 minutes and 22.62 seconds (22.62s).
+[2026-10-04T07:49:55.833+0000] {subprocess.py:93} INFO - [0m07:49:55
+[2026-10-04T07:49:55.837+0000] {subprocess.py:93} INFO - [0m07:49:55  [32mCompleted successfully[0m
+[2026-10-04T07:49:55.839+0000] {subprocess.py:93} INFO - [0m07:49:55
+[2026-10-04T07:49:55.843+0000] {subprocess.py:93} INFO - [0m07:49:55  Done. PASS=4 WARN=0 ERROR=0 SKIP=0 NO-OP=0 REUSED=0 TOTAL=4
+[2026-10-04T07:49:59.040+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-10-04T07:49:59.346+0000] {taskinstance.py:1400} INFO - Marking task as SUCCESS. dag_id=orchestrate, task_id=silver_technical_test, execution_date=20261004T074457, start_date=20261004T074859, end_date=20261004T074959
+[2026-10-04T07:49:59.503+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 0
+[2026-10-04T07:49:59.678+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

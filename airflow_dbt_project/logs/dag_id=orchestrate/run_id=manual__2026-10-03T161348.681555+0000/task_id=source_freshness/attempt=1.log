@@ -1,0 +1,51 @@
+[2026-10-03T16:14:05.114+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-03T16:13:48.681555+00:00 [queued]>
+[2026-10-03T16:14:05.131+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.source_freshness manual__2026-10-03T16:13:48.681555+00:00 [queued]>
+[2026-10-03T16:14:05.132+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-03T16:14:05.156+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): source_freshness> on 2026-10-03 16:13:48.681555+00:00
+[2026-10-03T16:14:05.170+0000] {standard_task_runner.py:57} INFO - Started process 297 to run task
+[2026-10-03T16:14:05.187+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'source_freshness', 'manual__2026-10-03T16:13:48.681555+00:00', '--job-id', '6', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmp1oee3r1i']
+[2026-10-03T16:14:05.194+0000] {standard_task_runner.py:85} INFO - Job 6: Subtask source_freshness
+[2026-10-03T16:14:05.300+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.source_freshness manual__2026-10-03T16:13:48.681555+00:00 [running]> on host f2942b7819b9
+[2026-10-03T16:14:05.510+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='source_freshness' AIRFLOW_CTX_EXECUTION_DATE='2026-10-03T16:13:48.681555+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-03T16:13:48.681555+00:00'
+[2026-10-03T16:14:05.520+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-03T16:14:05.521+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'dbt source freshness']
+[2026-10-03T16:14:05.564+0000] {subprocess.py:86} INFO - Output:
+[2026-10-03T16:14:18.656+0000] {subprocess.py:93} INFO - [0m16:14:18  Running with dbt=1.12.5
+[2026-10-03T16:14:30.570+0000] {subprocess.py:93} INFO - [0m16:14:30  Registered adapter: databricks=1.12.6
+[2026-10-03T16:14:37.638+0000] {subprocess.py:93} INFO - [0m16:14:37  [[31mERROR[0m]: Encountered an error:
+[2026-10-03T16:14:37.640+0000] {subprocess.py:93} INFO - 'walmart://macros/custom_schema.sql'
+[2026-10-03T16:14:37.644+0000] {subprocess.py:93} INFO - [0m16:14:37  Traceback (most recent call last):
+[2026-10-03T16:14:37.645+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 198, in wrapper
+[2026-10-03T16:14:37.650+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2026-10-03T16:14:37.651+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 144, in wrapper
+[2026-10-03T16:14:37.651+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-10-03T16:14:37.652+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 295, in wrapper
+[2026-10-03T16:14:37.654+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-10-03T16:14:37.655+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 340, in wrapper
+[2026-10-03T16:14:37.658+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-10-03T16:14:37.659+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 387, in wrapper
+[2026-10-03T16:14:37.661+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2026-10-03T16:14:37.662+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 403, in wrapper
+[2026-10-03T16:14:37.663+0000] {subprocess.py:93} INFO -     setup_manifest(ctx, write=write, write_perf_info=write_perf_info)
+[2026-10-03T16:14:37.664+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/cli/requires.py", line 480, in setup_manifest
+[2026-10-03T16:14:37.665+0000] {subprocess.py:93} INFO -     ctx.obj["manifest"] = parse_manifest(
+[2026-10-03T16:14:37.666+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/parser/manifest.py", line 2662, in parse_manifest
+[2026-10-03T16:14:37.668+0000] {subprocess.py:93} INFO -     manifest = ManifestLoader.get_full_manifest(
+[2026-10-03T16:14:37.669+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/parser/manifest.py", line 360, in get_full_manifest
+[2026-10-03T16:14:37.669+0000] {subprocess.py:93} INFO -     manifest = loader.load()
+[2026-10-03T16:14:37.670+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/parser/manifest.py", line 433, in load
+[2026-10-03T16:14:37.671+0000] {subprocess.py:93} INFO -     self.load_and_parse_macros(project_parser_files)
+[2026-10-03T16:14:37.677+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.10/site-packages/dbt/parser/manifest.py", line 852, in load_and_parse_macros
+[2026-10-03T16:14:37.678+0000] {subprocess.py:93} INFO -     block = FileBlock(self.manifest.files[file_id])
+[2026-10-03T16:14:37.679+0000] {subprocess.py:93} INFO - KeyError: 'walmart://macros/custom_schema.sql'
+[2026-10-03T16:14:37.682+0000] {subprocess.py:93} INFO - 
+[2026-10-03T16:14:40.429+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-10-03T16:14:40.622+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-10-03T16:14:40.656+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=source_freshness, execution_date=20261003T161348, start_date=20261003T161405, end_date=20261003T161440
+[2026-10-03T16:14:40.769+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 6 for task source_freshness (Bash command failed. The command returned a non-zero exit code 2.; 297)
+[2026-10-03T16:14:40.851+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-10-03T16:14:40.966+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check

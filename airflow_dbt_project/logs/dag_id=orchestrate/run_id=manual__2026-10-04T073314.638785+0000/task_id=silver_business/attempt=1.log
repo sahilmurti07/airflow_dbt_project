@@ -1,0 +1,45 @@
+[2026-10-04T08:04:21.531+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: orchestrate.silver_business manual__2026-10-04T07:33:14.638785+00:00 [queued]>
+[2026-10-04T08:04:21.642+0000] {taskinstance.py:1159} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: orchestrate.silver_business manual__2026-10-04T07:33:14.638785+00:00 [queued]>
+[2026-10-04T08:04:21.649+0000] {taskinstance.py:1361} INFO - Starting attempt 1 of 1
+[2026-10-04T08:04:21.746+0000] {taskinstance.py:1382} INFO - Executing <Task(BashOperator): silver_business> on 2026-10-04 07:33:14.638785+00:00
+[2026-10-04T08:04:22.069+0000] {standard_task_runner.py:57} INFO - Started process 3091 to run task
+[2026-10-04T08:04:22.117+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'orchestrate', 'silver_business', 'manual__2026-10-04T07:33:14.638785+00:00', '--job-id', '48', '--raw', '--subdir', 'DAGS_FOLDER/orchestrate.py', '--cfg-path', '/tmp/tmpqhy64sf_']
+[2026-10-04T08:04:22.195+0000] {standard_task_runner.py:85} INFO - Job 48: Subtask silver_business
+[2026-10-04T08:04:22.591+0000] {task_command.py:415} INFO - Running <TaskInstance: orchestrate.silver_business manual__2026-10-04T07:33:14.638785+00:00 [running]> on host f2942b7819b9
+[2026-10-04T08:04:23.048+0000] {taskinstance.py:1660} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='orchestrate' AIRFLOW_CTX_TASK_ID='silver_business' AIRFLOW_CTX_EXECUTION_DATE='2026-10-04T07:33:14.638785+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-10-04T07:33:14.638785+00:00'
+[2026-10-04T08:04:23.075+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-10-04T08:04:23.089+0000] {subprocess.py:75} INFO - Running command: ['/bin/bash', '-c', 'cd /opt/***/walmart && dbt run --select models/silver_b']
+[2026-10-04T08:04:23.149+0000] {subprocess.py:86} INFO - Output:
+[2026-10-04T08:04:36.553+0000] {subprocess.py:93} INFO - [0m08:04:36  Running with dbt=1.12.5
+[2026-10-04T08:05:02.166+0000] {subprocess.py:93} INFO - [0m08:05:01  Registered adapter: databricks=1.12.6
+[2026-10-04T08:05:11.291+0000] {subprocess.py:93} INFO - [0m08:05:11  Found 14 models, 5 data tests, 5 snapshots, 6 sources, 775 macros
+[2026-10-04T08:05:11.391+0000] {subprocess.py:93} INFO - [0m08:05:11
+[2026-10-04T08:05:11.405+0000] {subprocess.py:93} INFO - [0m08:05:11  Concurrency: 1 threads (target='dev')
+[2026-10-04T08:05:11.419+0000] {subprocess.py:93} INFO - [0m08:05:11
+[2026-10-04T08:05:27.100+0000] {subprocess.py:93} INFO - [0m08:05:27  1 of 1 START sql table model silver_b.obt_b .................................... [RUN]
+[2026-10-04T08:05:41.368+0000] {subprocess.py:93} INFO - [0m08:05:41  1 of 1 ERROR creating sql table model silver_b.obt_b ........................... [[31mERROR[0m in 13.25s]
+[2026-10-04T08:05:42.343+0000] {subprocess.py:93} INFO - [0m08:05:42
+[2026-10-04T08:05:42.433+0000] {subprocess.py:93} INFO - [0m08:05:42  Finished running 1 table model in 0 hours 0 minutes and 30.91 seconds (30.91s).
+[2026-10-04T08:05:49.152+0000] {subprocess.py:93} INFO - [0m08:05:49
+[2026-10-04T08:05:49.200+0000] {subprocess.py:93} INFO - [0m08:05:49  [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[2026-10-04T08:05:49.209+0000] {subprocess.py:93} INFO - [0m08:05:49
+[2026-10-04T08:05:49.210+0000] {subprocess.py:93} INFO - [0m08:05:49  [[31mERROR[0m]: in model obt_b (models/silver_b/obt_b.sql)
+[2026-10-04T08:05:49.228+0000] {subprocess.py:93} INFO - [0m08:05:49    Database Error in model obt_b (models/silver_b/obt_b.sql)
+[2026-10-04T08:05:49.231+0000] {subprocess.py:93} INFO -   [DELTA_METADATA_CHANGED] MetadataChangedException: The metadata of the Delta table walmart.silver_b.obt_b has been changed by a concurrent update. Please try the operation again.
+[2026-10-04T08:05:49.239+0000] {subprocess.py:93} INFO -   Conflicting commit: {"timestamp":1791101138221,"userId":"79031380103468","userName":"sahilmurti18@gmail.com","operation":"CREATE OR REPLACE TABLE AS SELECT","operationParameters":{"partitionBy":"[]","clusterBy":"[]","description":null,"isManaged":"true","properties":"{\"delta.parquet.compression.codec\":\"zstd\",\"delta.parquet.format.version.afe.internal\":\"2.12.0\",\"delta.enableDeletionVectors\":\"true\",\"delta.checkpoint.writeStatsAsStruct\":\"true\",\"delta.parquet.format.version\":\"2.12.0\",\"delta.checkpoint.writeStatsAsJson\":\"false\",\"io.unitycatalog.tableId\":\"a8148941-ff27-4f16-abf5-3833b1fae4e7\"}","statsOnLoad":true},"queryHistoryStatementId":"01f1bfca-6010-1aae-ad64-3063d9c62577","readVersion":10,"isolationLevel":"WriteSerializable","isBlindAppend":false,"dataChange":true,"operationMetrics":{"numFiles":"1","numRemovedFiles":"1","numRemovedBytes":"10765475","numDeletionVectorsRemoved":"0","numOutputRows":"300513","numOutputBytes":"10765475"},"tags":{"noRowsCopied":"true","restoresDeletedRows":"false"},"engineInfo":"Databricks-Runtime/19.6.x-aarch64-photon-scala2.13","txnId":"674717c6-5d3d-4d13-87fb-bb0b7d7caa10"}
+[2026-10-04T08:05:49.246+0000] {subprocess.py:93} INFO -   Refer to https://docs.databricks.com/delta/concurrency-control.html for more details.
+[2026-10-04T08:05:49.266+0000] {subprocess.py:93} INFO -   compiled code at target/run/walmart/models/silver_b/obt_b.sql
+[2026-10-04T08:05:49.270+0000] {subprocess.py:93} INFO - [0m08:05:49
+[2026-10-04T08:05:49.274+0000] {subprocess.py:93} INFO - [0m08:05:49    compiled code at target/compiled/walmart/models/silver_b/obt_b.sql
+[2026-10-04T08:05:49.278+0000] {subprocess.py:93} INFO - [0m08:05:49
+[2026-10-04T08:05:49.286+0000] {subprocess.py:93} INFO - [0m08:05:49  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 NO-OP=0 REUSED=0 TOTAL=1
+[2026-10-04T08:06:35.327+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-10-04T08:06:35.872+0000] {taskinstance.py:1943} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/bash.py", line 210, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-10-04T08:06:35.976+0000] {taskinstance.py:1400} INFO - Marking task as FAILED. dag_id=orchestrate, task_id=silver_business, execution_date=20261004T073314, start_date=20261004T080421, end_date=20261004T080635
+[2026-10-04T08:06:36.071+0000] {standard_task_runner.py:104} ERROR - Failed to execute job 48 for task silver_business (Bash command failed. The command returned a non-zero exit code 1.; 3091)
+[2026-10-04T08:06:36.146+0000] {local_task_job_runner.py:228} INFO - Task exited with return code 1
+[2026-10-04T08:06:36.336+0000] {taskinstance.py:2784} INFO - 0 downstream tasks scheduled from follow-on schedule check
